@@ -8,12 +8,6 @@ export class CdkBasionStack extends Stack {
   constructor(scope: Construct, id: string, props?: StackProps) {
     super(scope, id, props);
 
-    const queue = new sqs.Queue(this, 'CdkBasionQueue', {
-      visibilityTimeout: Duration.seconds(300)
-    });
-
-    const topic = new sns.Topic(this, 'CdkBasionTopic');
-
-    topic.addSubscription(new subs.SqsSubscription(queue));
+    
   }
 }
